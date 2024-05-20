@@ -1,16 +1,75 @@
-// custom.scss 
+$primary: #906427;
+$secondary: #B6AC97;
+$dark:#392C1E;
+$black:  #292222;
+$font-family-sans-serif: "Montserrat", sans-serif !default;
 
-// Import Bootstrap variables
-@import "bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/bootstrap";
 
-$primary:    #06c;
-$secondary:  #6c757d;
-$success:    #28a745;
-$info:       #17a2b8;
-$warning:    #ffc107;
-$danger:     #dc3545;
-$light:      #f8f9fa;
-$dark:       #343a40;
 
-// Import Bootstrap to get the default styles
-@import "bootstrap/scss/bootstrap";
+.hero-scene{
+  position: relative;
+  &::before{
+    content:"";
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-image: url(../images/FondHeroScene.jpg);
+    background-size: cover;
+    filter: brightness(0.3);
+  }
+
+  *{
+    //Positionner les éléments devant le ::before
+    position:relative;
+  }
+
+  .hero-scene-content{
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.image-card{
+  position:relative;
+  &:hover{
+    .titre-image,
+    .action-image-buttons{
+      opacity: 1;
+    }
+    img{
+      filter: brightness(0.3);
+    }
+  }
+
+  img{
+    transition: all 0.3s;
+  }
+
+  .titre-image{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.3s;
+  }
+
+  .action-image-buttons{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    justify-content:space-between;
+
+    opacity: 0;
+    transition: all 0.3s;
+  }
+}
